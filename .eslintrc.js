@@ -39,6 +39,9 @@ module.exports = {
         'no-console': ['error', {allow: ['tron']}],
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'warn',
+        'object-curly-newline': 'off',
+        'implicit-arrow-linebreak': 'off',
+        'operator-linebreak': 'off',
   },
   settings: {
     'import/resolver': {
