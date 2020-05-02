@@ -1,12 +1,29 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import Background from '~/components/Background';
 
-// import { Container } from './styles';
+import icon from '~/assets/device-apps.png';
+
+import {
+  MessageContainer,
+  Image,
+  RedText,
+  WhiteText,
+  SmallText,
+} from './styles';
 
 export default function SlideShow1() {
   return (
-    <View>
-      <Text>Hello World</Text>
-    </View>
+    <Background>
+      <MessageContainer>
+        <Image source={icon} style={{ resizeMode: 'contain' }} />
+        <View>
+          <RedText>Os Apps da Globo</RedText>
+          <WhiteText>Agora em um só lugar</WhiteText>
+          <SmallText>fique por dentro das notícias,</SmallText>
+          <SmallText> jogos e séries</SmallText>
+        </View>
+      </MessageContainer>
+    </Background>
   );
 }
