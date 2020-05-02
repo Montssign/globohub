@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import Background from '~/components/Background';
 
-import icon from '~/assets/device-apps.png';
+import icon from '~/assets/images/device-apps.png';
 
 import {
   MessageContainer,
@@ -21,7 +21,7 @@ export default function SlideShow1() {
           <RedText>Os Apps da Globo</RedText>
           <WhiteText>Agora em um só lugar</WhiteText>
           <SmallText>fique por dentro das notícias,</SmallText>
-          <SmallText> jogos e séries</SmallText>
+          <SmallText>esportes e séries</SmallText>
         </View>
       </MessageContainer>
     </Background>
