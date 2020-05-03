@@ -1,13 +1,12 @@
 import styled, { css } from 'styled-components/native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { RectButton } from 'react-native-gesture-handler';
 
-export const Container = styled(TouchableOpacity)`
+export const Container = styled(RectButton)`
   height: 48px;
   width: 400px;
   max-width: 335px;
   border-radius: 24px;
   overflow: hidden;
-
   ${(props) =>
     props.type === 'primary' &&
     css`
@@ -17,7 +16,23 @@ export const Container = styled(TouchableOpacity)`
   ${(props) =>
     props.type === 'secondary' &&
     css`
-      background: transparent;
+      background: #222222;
+    `}
+`;
+
+export const View = styled.View`
+  border-radius: 24px;
+
+  ${(props) =>
+    props.type === 'primary' &&
+    css`
+      border: 0 solid rgba(0, 0, 0, 0.2);
+      border-bottom-width: 3px;
+    `}
+
+  ${(props) =>
+    props.type === 'secondary' &&
+    css`
       border: 3px solid #f31d1d;
     `}
 `;
@@ -32,9 +47,4 @@ export const Text = styled.Text`
     css`
       text-decoration: underline;
     `}
-`;
-
-export const Line = styled.View`
-  background: rgba(0, 0, 0, 0.2);
-  height: 3px;
 `;
