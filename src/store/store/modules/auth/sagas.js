@@ -15,19 +15,9 @@ export function* signIn({ payload }) {
 
     const { token, user } = response.data;
 
-    if (user.provider) {
-      Alert.alert(
-        'Erro no login',
-        'O usuário não pode ser prestador de serviços'
-      );
-      return;
-    }
-
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
     yield put(signInSuccess(token, user));
-
-    // history.push('/dashboard');
   } catch (error) {
     Alert.alert(
       'Falha na autenticação',
@@ -48,7 +38,6 @@ export function* signUp({ payload }) {
     });
 
     yield put(signUpSuccess());
-    // history.push('/');
   } catch (error) {
     Alert.alert(
       'Falha no cadastro',
