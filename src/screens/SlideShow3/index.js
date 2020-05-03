@@ -1,12 +1,26 @@
-import React from 'react';
-import Background from '~/components/Background';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import { setSlide } from '~/store/modules/slideShow/actions';
 
 import icon from '~/assets/images/logo.png';
-
-import { Image, Container, SmallText, WhiteText, RedText } from './styles';
+import Background from '~/components/Background';
 import Button from '~/components/Button';
 
-export default function SlideShow3() {
+import { Image, Container, SmallText, WhiteText, RedText } from './styles';
+
+export default function SlideShow3({ navigation }) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      dispatch(setSlide(3));
+    });
+
+    return unsubscribe;
+  }, [dispatch, navigation]);
+
   return (
     <Background>
       <Container>
@@ -25,3 +39,9 @@ export default function SlideShow3() {
     </Background>
   );
 }
+
+SlideShow3.propTypes = {
+  navigation: PropTypes.shape({
+    addListener: PropTypes.func,
+  }).isRequired,
+};

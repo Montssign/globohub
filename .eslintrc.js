@@ -43,6 +43,7 @@ module.exports = {
         'object-curly-newline': 'off',
         'implicit-arrow-linebreak': 'off',
         'operator-linebreak': 'off',
+        'arrow-parens': ["error", "as-needed"],
         'comma-dangle': ['error', {
           "arrays": "always-multiline",
           "exports": "always-multiline",

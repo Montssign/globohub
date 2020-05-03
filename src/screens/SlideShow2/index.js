@@ -1,14 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View } from 'react-native';
-import Background from '~/components/Background';
-import { MessageContainer } from '../SlideShow1/styles';
+import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import { setSlide } from '~/store/modules/slideShow/actions';
 
 import icon from '~/assets/images/map.png';
+import Background from '~/components/Background';
 
-import { Image, RedText, WhiteText, SmallText } from './styles';
+import {
+  Image,
+  RedText,
+  WhiteText,
+  SmallText,
+  MessageContainer,
+} from './styles';
 import Button from '~/components/Button';
 
-export default function SlideShow2() {
+export default function SlideShow2({ navigation }) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      dispatch(setSlide(2));
+    });
+
+    return unsubscribe;
+  }, [dispatch, navigation]);
+
   return (
     <Background>
       <MessageContainer>
@@ -23,3 +42,9 @@ export default function SlideShow2() {
     </Background>
   );
 }
+
+SlideShow2.propTypes = {
+  navigation: PropTypes.shape({
+    addListener: PropTypes.func,
+  }).isRequired,
+};
