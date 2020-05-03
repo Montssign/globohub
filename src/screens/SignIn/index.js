@@ -24,7 +24,9 @@ export default function SignIn({ navigation }) {
     navigation.navigate('SignOn');
   }
 
-  function handleLogin() {}
+  function handleLogin() {
+    navigation.navigate('ChosePlatform');
+  }
 
   return (
     <Container>
