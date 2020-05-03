@@ -3,51 +3,93 @@ import produce from 'immer';
 
 import FavoriteCategoryItem from '../FavoriteCategoryItem';
 
-import globoplayIcon from '~/assets/images/globoplay.png';
-import g1Icon from '~/assets/images/g1.png';
-import globoesporteIcon from '~/assets/images/globoesporte.png';
-import gshowIcon from '~/assets/images/gshow.png';
-import globosatIcon from '~/assets/images/globosat.png';
-import techtudoIcon from '~/assets/images/techtudo.png';
-
 import { Container } from './styles';
 
 export default function FavoriteCategory() {
   const [platforms, setPlatforms] = useState(() => [
     {
-      name: 'globoplay',
-      type: 'Entretenimento',
-      image: globoplayIcon,
+      name: 'Saúde',
+      type: 'saude',
       chosed: false,
     },
     {
-      name: 'G1',
-      type: 'Notícias',
-      image: g1Icon,
+      name: 'Economia',
+      type: 'economia',
       chosed: false,
     },
     {
-      name: 'globoesporte',
-      type: 'Esportes',
-      image: globoesporteIcon,
+      name: 'Política',
+      type: 'politica',
       chosed: false,
     },
     {
-      name: 'gshow',
-      type: 'Entretenimento',
-      image: gshowIcon,
+      name: 'Mundo',
+      type: 'mundo',
       chosed: false,
     },
     {
-      name: 'globosat',
-      type: 'Entretenimento',
-      image: globosatIcon,
+      name: 'Esporte',
+      type: 'esporte',
       chosed: false,
     },
     {
-      name: 'techtudo',
-      type: 'Tecnologia',
-      image: techtudoIcon,
+      name: 'Tecnologia',
+      type: 'tecnologia',
+      chosed: false,
+    },
+    {
+      name: 'Pop & Art',
+      type: 'popeart',
+      chosed: false,
+    },
+    {
+      name: 'Educação',
+      type: 'educacao',
+      chosed: false,
+    },
+    {
+      name: 'Carros',
+      type: 'carros',
+      chosed: false,
+    },
+    {
+      name: 'Agro',
+      type: 'agro',
+      chosed: false,
+    },
+    {
+      name: 'Bem estar',
+      type: 'bemestar',
+      chosed: false,
+    },
+    {
+      name: 'Ciência',
+      type: 'ciencia',
+      chosed: false,
+    },
+    {
+      name: 'Fato ou Fake',
+      type: 'fatooufake',
+      chosed: false,
+    },
+    {
+      name: 'Natureza',
+      type: 'natureza',
+      chosed: false,
+    },
+    {
+      name: 'Turismo & Viagem',
+      type: 'turismoeviagem',
+      chosed: false,
+    },
+    {
+      name: 'Planeta Bizarro',
+      type: 'planetabizarro',
+      chosed: false,
+    },
+    {
+      name: 'Olha que legal',
+      type: 'olhaquelegal',
       chosed: false,
     },
   ]);
@@ -64,13 +106,12 @@ export default function FavoriteCategory() {
   return (
     <Container
       data={platforms}
-      keyExtractor={item => String(item.name)}
+      keyExtractor={item => String(item.type)}
       numColumns={2}
       renderItem={({ item }) => (
         <FavoriteCategoryItem
-          key={item.name}
-          title={item.type}
-          image={item.image}
+          key={item.type}
+          title={item.name}
           chosed={item.chosed}
           onPress={() => toggleChosed(item)}
         />

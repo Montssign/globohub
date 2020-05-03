@@ -1,7 +1,9 @@
 import React from 'react';
-
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import FavoritePlatform from '~/components/FavoritePlatform';
+import PropTypes from 'prop-types';
+
+import { Text } from 'react-native';
+import FavoriteCategory from '~/components/FavoriteCategory';
 import Background from '~/components/Background';
 
 import logo from '~/assets/images/logo.png';
@@ -16,7 +18,7 @@ import {
   Button,
 } from './styles';
 
-export default function ChoseFavoriteCategory() {
+export default function ChoseFavoriteCategory({ navigation }) {
   return (
     <Background>
       <Header>
@@ -25,16 +27,24 @@ export default function ChoseFavoriteCategory() {
         <WhiteText>Categorias Favoritas</WhiteText>
       </Header>
       <Container>
-        <FavoritePlatform />
+        <FavoriteCategory />
       </Container>
       <Bottom>
-        <Button style={{ opacity: 0 }}>
+        <Button onPress={() => navigation.navigate('ChosePlatform')}>
+          <Text>Voltar</Text>
           <Icon name="chevron-left" size={30} />
         </Button>
         <Button>
+          <Text>Avançar</Text>
           <Icon name="chevron-right" size={30} />
         </Button>
       </Bottom>
     </Background>
   );
 }
+
+ChoseFavoriteCategory.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }).isRequired,
+};

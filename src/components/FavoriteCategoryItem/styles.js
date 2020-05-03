@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components/native';
 
 export const Container = styled.View`
   width: 160px;
-  height: 160px;
+  height: 56px;
   background: #d1d1d120;
   border-radius: 4px;
   justify-content: center;
@@ -16,16 +16,8 @@ export const Container = styled.View`
     `}
 `;
 
-export const Image = styled.Image`
-  width: 90%;
-  height: 32px;
-  justify-content: center;
-  align-items: center;
-`;
-
 export const Title = styled.Text`
   text-align: center;
   font-size: 16px;
-  margin-top: 8px;
   font-family: 'OpenSans-Bold';
 `;
