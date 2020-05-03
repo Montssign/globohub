@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import produce from 'immer';
 
-import FavoritePlatFormItem from '../FavoritePlatFormItem';
+import FavoritePlatformItem from '../FavoritePlatformItem';
 
 import globoplayIcon from '~/assets/images/globoplay.png';
 import g1Icon from '~/assets/images/g1.png';
@@ -67,7 +67,7 @@ export default function FavoritePlatform() {
       keyExtractor={item => String(item.name)}
       numColumns={2}
       renderItem={({ item }) => (
-        <FavoritePlatFormItem
+        <FavoritePlatformItem
           key={item.name}
           title={item.type}
           image={item.image}
@@ -78,16 +78,3 @@ export default function FavoritePlatform() {
     />
   );
 }
-
-// <Container>
-//   {platforms &&
-//     platforms.map(platform => (
-//       <FavoritePlatFormItem
-//         key={platform.name}
-//         title={platform.type}
-//         image={platform.image}
-//         chosed={platform.chosed}
-//         onPress={() => toggleChosed(platform)}
-//       />
-//     ))}
-// </Container>

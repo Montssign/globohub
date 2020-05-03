@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { RectButton } from 'react-native-gesture-handler';
 import { Container, Image, Title } from './styles';
 
-export default function FavoritePlatFormItem({
+export default function FavoritePlatformItem({
   title,
   image,
   chosed,
@@ -20,7 +20,7 @@ export default function FavoritePlatFormItem({
   );
 }
 
-FavoritePlatFormItem.propTypes = {
+FavoritePlatformItem.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   chosed: PropTypes.bool.isRequired,

@@ -16,7 +16,7 @@ import {
   Button,
 } from './styles';
 
-export default function ChoseFavoritePlatform() {
+export default function ChoseFavoriteCategory() {
   return (
     <Background>
       <Header>
