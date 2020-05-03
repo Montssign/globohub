@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { View } from 'react-native';
+import { View, Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import Geolocation from '@react-native-community/geolocation';
 
 import { setSlide } from '~/store/modules/slideShow/actions';
 
@@ -28,6 +29,18 @@ export default function SlideShow2({ navigation }) {
     return unsubscribe;
   }, [dispatch, navigation]);
 
+  function handleRequestGeolocation() {
+    try {
+      Geolocation.getCurrentPosition(position => {
+        console.tron.log(position);
+      });
+
+      navigation.navigate('SlideShow3');
+    } catch (error) {
+      Alert.alert('Você pode ativar a qualquer momento');
+    }
+  }
+
   return (
     <Background>
       <MessageContainer>
@@ -37,7 +50,9 @@ export default function SlideShow2({ navigation }) {
           <WhiteText>E Melhore</WhiteText>
           <RedText>Sua Experiência</RedText>
         </View>
-        <Button style={{ marginTop: 56 }}>Habilitar agora</Button>
+        <Button onPress={handleRequestGeolocation} style={{ marginTop: 56 }}>
+          Habilitar agora
+        </Button>
       </MessageContainer>
     </Background>
   );
@@ -46,5 +61,6 @@ export default function SlideShow2({ navigation }) {
 SlideShow2.propTypes = {
   navigation: PropTypes.shape({
     addListener: PropTypes.func,
+    navigate: PropTypes.func,
   }).isRequired,
 };
