@@ -7,6 +7,7 @@ import SignIn from '~/screens/SignIn';
 import SignOn from '~/screens/SignOn';
 import ContaGloboHeader from '~/components/ContaGloboHeader';
 import ChoseFavoritePlatform from '~/screens/ChoseFavoritePlatform';
+import ChoseFavoriteCategory from '~/screens/ChoseFavoriteCategory';
 
 const Stack = createStackNavigator();
 
@@ -35,6 +36,11 @@ export default function Routes() {
           name="ChosePlatform"
           options={{ header: () => <></> }}
           component={ChoseFavoritePlatform}
+        />
+        <Stack.Screen
+          name="ChoseCategory"
+          options={{ header: () => <></> }}
+          component={ChoseFavoriteCategory}
         />
       </Stack.Navigator>
     </NavigationContainer>
