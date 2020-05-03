@@ -6,6 +6,7 @@ import RouteSlideShow from './RouteSlideShow';
 import SignIn from '~/screens/SignIn';
 import SignOn from '~/screens/SignOn';
 import ContaGloboHeader from '~/components/ContaGloboHeader';
+import ChoseFavoritePlatform from '~/screens/ChoseFavoritePlatform';
 
 const Stack = createStackNavigator();
 
@@ -29,6 +30,11 @@ export default function Routes() {
           name="SignOn"
           options={{ header: ContaGloboHeader }}
           component={SignOn}
+        />
+        <Stack.Screen
+          name="ChosePlatform"
+          options={{ header: () => <></> }}
+          component={ChoseFavoritePlatform}
         />
       </Stack.Navigator>
     </NavigationContainer>
