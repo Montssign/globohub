@@ -21,6 +21,14 @@ export default function SlideShow3({ navigation }) {
     return unsubscribe;
   }, [dispatch, navigation]);
 
+  function handleCreateAcount() {
+    navigation.navigate('SignOn');
+  }
+
+  function handleLogin() {
+    navigation.navigate('SignIn');
+  }
+
   return (
     <Background>
       <Container>
@@ -28,8 +36,10 @@ export default function SlideShow3({ navigation }) {
         <SmallText>Crie sua conta Globo</SmallText>
         <WhiteText>Para acessar a Globo Hub</WhiteText>
         <RedText>E não perca nada!</RedText>
-        <Button style={{ marginTop: 36 }}>Criar conta Globo</Button>
-        <Button style={{ margin: 16 }} type="secondary">
+        <Button onPress={handleCreateAcount} style={{ marginTop: 36 }}>
+          Criar conta Globo
+        </Button>
+        <Button onPress={handleLogin} style={{ margin: 16 }} type="secondary">
           Já tenho uma conta
         </Button>
         <Button style={{ margin: 16 }} type="link">
@@ -43,5 +53,6 @@ export default function SlideShow3({ navigation }) {
 SlideShow3.propTypes = {
   navigation: PropTypes.shape({
     addListener: PropTypes.func,
+    navigate: PropTypes.func,
   }).isRequired,
 };
