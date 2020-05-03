@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import { Container, Text, View } from './styles';
 
-export default function Button({ children, style, type }) {
+export default function Button({ children, style, type, ...rest }) {
   return (
-    <Container type={type} style={style}>
+    <Container {...rest} type={type} style={style}>
       <View type={type}>
         <Text type={type}>{children}</Text>
       </View>
