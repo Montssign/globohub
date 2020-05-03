@@ -1,6 +1,7 @@
 import React from 'react';
-
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import PropTypes from 'prop-types';
+
 import FavoritePlatform from '~/components/FavoritePlatform';
 import Background from '~/components/Background';
 
@@ -16,7 +17,7 @@ import {
   Button,
 } from './styles';
 
-export default function ChoseFavoritePlatform() {
+export default function ChoseFavoritePlatform({ navigation }) {
   return (
     <Background>
       <Header>
@@ -31,10 +32,16 @@ export default function ChoseFavoritePlatform() {
         <Button style={{ opacity: 0 }}>
           <Icon name="chevron-left" size={30} />
         </Button>
-        <Button>
+        <Button onPress={() => navigation.navigate('ChoseCategory')}>
           <Icon name="chevron-right" size={30} />
         </Button>
       </Bottom>
     </Background>
   );
 }
+
+ChoseFavoritePlatform.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }).isRequired,
+};
