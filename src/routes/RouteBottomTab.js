@@ -3,10 +3,10 @@ import React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import Search from '~/screens/Search';
 import Friends from '~/screens/Friends';
 import Me from '~/screens/Me';
 import RouteFeedTabs from './RouteFeedTabs';
+import RouteSearchTabs from './RouteSearchTabs';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -19,6 +19,7 @@ export default function RouteBottomTab() {
       <Tab.Screen
         name="Home"
         options={{
+          title: 'Home',
           tabBarLabel: 'Início',
           tabBarIcon: ({ color }) => (
             <Icons name="home" color={color} size={26} />
@@ -27,14 +28,14 @@ export default function RouteBottomTab() {
         component={RouteFeedTabs}
       />
       <Tab.Screen
-        name="Search"
+        name="SearchTab"
         options={{
           tabBarLabel: 'Procurar',
           tabBarIcon: ({ color }) => (
             <Icons name="magnify" color={color} size={26} />
           ),
         }}
-        component={Search}
+        component={RouteSearchTabs}
       />
       <Tab.Screen
         name="Friends"

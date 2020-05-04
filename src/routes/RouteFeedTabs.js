@@ -1,12 +1,15 @@
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Feed from '~/screens/Feed';
+import GloboPlayFeed from '~/screens/GloboPlayFeed';
+import GloboSatPlayFeed from '~/screens/GloboSatPlayFeed';
 
 const Tab = createMaterialTopTabNavigator();
 
 export default function RouteFeedTabs() {
   return (
     <Tab.Navigator
+      initialRouteName="Feed"
       tabBarOptions={{
         style: { height: 32 },
         scrollEnabled: true,
@@ -30,7 +33,7 @@ export default function RouteFeedTabs() {
       <Tab.Screen
         name="GloboPlay"
         initialParams={{ type: 'GloboPlay' }}
-        component={Feed}
+        component={GloboPlayFeed}
       />
       <Tab.Screen
         name="GShow"
@@ -45,7 +48,7 @@ export default function RouteFeedTabs() {
       <Tab.Screen
         name="GlobosatPlay"
         initialParams={{ type: 'GlobosatPlay' }}
-        component={Feed}
+        component={GloboSatPlayFeed}
       />
       <Tab.Screen
         name="TechTudo"
