@@ -86,6 +86,10 @@ export default function Friends({ navigation }) {
     );
   }
 
+  function addFriend() {
+    setEmail('');
+  }
+
   const friends = useMemo(() => people.filter(person => !person.accept), [
     people,
   ]);
@@ -113,12 +117,15 @@ export default function Friends({ navigation }) {
         <Input
           value={email}
           setValue={setEmail}
+          onSubmitEditing={addFriend}
           style={{ flex: 1 }}
           returnKeyType="send"
+          autoCapitalize="none"
           textContentType="emailAddress"
           keyboardType="email-address"
+          icon="email"
         />
-        <AddButton canSend={validEmail}>
+        <AddButton canSend={validEmail} onPress={addFriend}>
           <Icon name="add" size={30} />
         </AddButton>
       </Row>
