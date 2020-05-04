@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+
 import Background from '~/components/Background';
+import Card from '~/components/Card';
 
 import { Container } from './styles';
-import Card from '~/components/Card';
 
 const data = [
   {
@@ -161,7 +163,7 @@ export default function Feed({ route, navigation }) {
     });
 
     return unsubscribe;
-  }, [navigation, route.name]);
+  }, [navigation, route.params.type]);
 
   return (
     <Background>
@@ -181,3 +183,14 @@ export default function Feed({ route, navigation }) {
     </Background>
   );
 }
+
+Feed.propTypes = {
+  navigation: PropTypes.shape({
+    addListener: PropTypes.func,
+  }).isRequired,
+  route: PropTypes.shape({
+    params: PropTypes.shape({
+      type: PropTypes.string,
+    }),
+  }).isRequired,
+};

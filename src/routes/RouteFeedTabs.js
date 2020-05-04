@@ -26,30 +26,30 @@ export default function RouteFeedTabs() {
         initialParams={{ type: 'Feed' }}
         component={Feed}
       />
-      <Tab.Screen name="G1" initialParams={{ type: 'Feed' }} component={Feed} />
+      <Tab.Screen name="G1" initialParams={{ type: 'G1' }} component={Feed} />
       <Tab.Screen
         name="GloboPlay"
-        initialParams={{ type: 'Feed' }}
+        initialParams={{ type: 'GloboPlay' }}
         component={Feed}
       />
       <Tab.Screen
         name="GShow"
-        initialParams={{ type: 'Feed' }}
+        initialParams={{ type: 'GShow' }}
         component={Feed}
       />
       <Tab.Screen
         name="Globoesporte"
-        initialParams={{ type: 'Feed' }}
+        initialParams={{ type: 'Globoesporte' }}
         component={Feed}
       />
       <Tab.Screen
         name="GlobosatPlay"
-        initialParams={{ type: 'Feed' }}
+        initialParams={{ type: 'GlobosatPlay' }}
         component={Feed}
       />
       <Tab.Screen
         name="TechTudo"
-        initialParams={{ type: 'Feed' }}
+        initialParams={{ type: 'TechTudo' }}
         component={Feed}
       />
     </Tab.Navigator>
