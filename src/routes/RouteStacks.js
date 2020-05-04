@@ -19,6 +19,8 @@ import MeProfile from '~/screens/MeProfile';
 import MeFavoriteCategory from '~/screens/MeFavoriteCategory';
 import MeFavoritePlatform from '~/screens/MeFavoritePlatform';
 import Header from '~/components/Header';
+import GloboRoom from '~/screens/GloboRoom';
+import GloboRoomList from '~/screens/GloboRoomList';
 
 const Stack = createStackNavigator();
 
@@ -106,6 +108,17 @@ export default function RouteStacks() {
         name="MeFavoritePlatform"
         options={{ header: () => <></> }}
         component={MeFavoritePlatform}
+      />
+
+      <Stack.Screen
+        name="GloboRoom"
+        options={{ header: () => <></> }}
+        component={GloboRoom}
+      />
+      <Stack.Screen
+        name="GloboRoomList"
+        options={{ header: () => <></> }}
+        component={GloboRoomList}
       />
     </Stack.Navigator>
   );
