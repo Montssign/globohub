@@ -3,6 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import RouteSlideShow from './RouteSlideShow';
+import RouteBottomTab from './RouteBottomTab';
+
 import SignIn from '~/screens/SignIn';
 import SignOn from '~/screens/SignOn';
 import ContaGloboHeader from '~/components/ContaGloboHeader';
@@ -16,7 +18,7 @@ export default function Routes() {
     <NavigationContainer
       theme={{ dark: true, colors: { background: '#222222', text: '#f8f7fd' } }}
     >
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="App">
         <Stack.Screen
           name="SlideShow"
           options={{ header: () => <></> }}
@@ -41,6 +43,11 @@ export default function Routes() {
           name="ChoseCategory"
           options={{ header: () => <></> }}
           component={ChoseFavoriteCategory}
+        />
+        <Stack.Screen
+          name="App"
+          options={{ header: () => <></> }}
+          component={RouteBottomTab}
         />
       </Stack.Navigator>
     </NavigationContainer>
