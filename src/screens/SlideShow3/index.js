@@ -29,6 +29,10 @@ export default function SlideShow3({ navigation }) {
     navigation.navigate('SignIn');
   }
 
+  function handleEnter() {
+    navigation.navigate('App');
+  }
+
   return (
     <Background>
       <Container>
@@ -42,7 +46,7 @@ export default function SlideShow3({ navigation }) {
         <Button onPress={handleLogin} style={{ margin: 16 }} type="secondary">
           Já tenho uma conta
         </Button>
-        <Button style={{ margin: 16 }} type="link">
+        <Button onPress={handleEnter} style={{ margin: 16 }} type="link">
           Criar mais tarde
         </Button>
       </Container>
