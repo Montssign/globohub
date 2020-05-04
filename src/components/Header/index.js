@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
 
 import { Container, Button, Title } from './styles';
 
-export default function Header({ title, hasGoBack, hasClose, height }) {
+export default function Header({ title, hasGoBack, hasClose, height, scene }) {
   const navigation = useNavigation();
+  title = useMemo(() => {
+    if (title) {
+      return title;
+    }
+    if (scene.descriptor) {
+      const { options } = scene.descriptor;
+      if (options.headerTitle) {
+        return options.headerTitle;
+      }
+      if (options.title) {
+        return options.title;
+      }
+      return scene.route.name;
+    }
+    return 'Globo Hub';
+  }, [scene, title]);
+
   function goBack() {
     if (hasGoBack) {
       if (navigation.canGoBack()) {
@@ -45,14 +62,27 @@ export default function Header({ title, hasGoBack, hasClose, height }) {
 }
 
 Header.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   hasGoBack: PropTypes.bool,
   hasClose: PropTypes.bool,
   height: PropTypes.number,
+  scene: PropTypes.shape({
+    descriptor: PropTypes.shape({
+      options: PropTypes.shape({
+        headerTitle: PropTypes.string,
+        title: PropTypes.string,
+      }),
+    }),
+    route: PropTypes.shape({
+      name: PropTypes.string,
+    }),
+  }),
 };
 
 Header.defaultProps = {
+  title: '',
   hasGoBack: false,
   hasClose: false,
   height: 56,
+  scene: {},
 };
