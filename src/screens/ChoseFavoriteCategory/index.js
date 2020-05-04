@@ -34,7 +34,7 @@ export default function ChoseFavoriteCategory({ navigation }) {
           <Text>Voltar</Text>
           <Icon name="chevron-left" size={30} />
         </Button>
-        <Button>
+        <Button onPress={() => navigation.navigate('App')}>
           <Text>Avançar</Text>
           <Icon name="chevron-right" size={30} />
         </Button>
