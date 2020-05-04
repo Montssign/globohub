@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 
 import Background from '~/components/Background';
+
 import Card from '~/components/Card';
+import { setTitle } from '~/store/modules/title/actions';
 
 import { Container } from './styles';
 
@@ -152,6 +155,13 @@ const data = [
 
 export default function Feed({ route, navigation }) {
   const [news, setNews] = useState([]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    navigation.addListener('focus', () => {
+      dispatch(setTitle('Globo Hub'));
+    });
+  }, [dispatch, navigation]);
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
