@@ -111,14 +111,18 @@ export default function Friends({ navigation }) {
     });
   }, [dispatch, navigation]);
 
+  function enterRoom() {
+    navigation.navigate('GloboRoom');
+  }
+
   return (
     <Background>
       <Row>
         <Input
           value={email}
           setValue={setEmail}
-          onSubmitEditing={addFriend}
           style={{ flex: 1 }}
+          onSubmitEditing={addFriend}
           returnKeyType="send"
           autoCapitalize="none"
           textContentType="emailAddress"
@@ -153,7 +157,9 @@ export default function Friends({ navigation }) {
       <Container
         data={friends}
         keyExtractor={item => String(item.id)}
-        renderItem={({ item }) => <FriendItem data={item} />}
+        renderItem={({ item }) => (
+          <FriendItem data={item} canEnterRoom={enterRoom} />
+        )}
       />
     </Background>
   );

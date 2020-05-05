@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { setTitle } from '~/store/modules/title/actions';
+import FailMessage from '~/components/FailMessage';
 
 // import { Container } from './styles';
 
@@ -15,11 +15,7 @@ export default function Me({ navigation }) {
     });
   }, [dispatch, navigation]);
 
-  return (
-    <View>
-      <Text>Eu</Text>
-    </View>
-  );
+  return <FailMessage />;
 }
 
 Me.propTypes = {

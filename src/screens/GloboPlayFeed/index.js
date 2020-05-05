@@ -1,8 +1,8 @@
 import React from 'react';
-import { View } from 'react-native';
+import FailMessage from '~/components/FailMessage';
 
 // import { Container } from './styles';
 
 export default function GloboPlayFeed() {
-  return <View />;
+  return <FailMessage />;
 }

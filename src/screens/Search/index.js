@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { View, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setTitle } from '~/store/modules/title/actions';
+import FailMessage from '~/components/FailMessage';
 
 // import { Container } from './styles';
 
@@ -15,11 +15,7 @@ export default function Search({ navigation }) {
     });
   }, [dispatch, navigation]);
 
-  return (
-    <View>
-      <Text>Search</Text>
-    </View>
-  );
+  return <FailMessage />;
 }
 
 Search.propTypes = {

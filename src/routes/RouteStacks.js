@@ -30,7 +30,7 @@ export default function RouteStacks() {
   const title = useSelector(state => state.title.title);
 
   return (
-    <Stack.Navigator initialRouteName="App">
+    <Stack.Navigator initialRouteName="SlideShow">
       <Stack.Screen
         name="SlideShow"
         options={{ header: () => <></> }}
@@ -112,7 +112,7 @@ export default function RouteStacks() {
 
       <Stack.Screen
         name="GloboRoom"
-        options={{ header: () => <></> }}
+        options={{ header: () => <Header title="Globo Rom" hasGoBack /> }}
         component={GloboRoom}
       />
       <Stack.Screen

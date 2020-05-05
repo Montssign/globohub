@@ -13,7 +13,12 @@ import {
   UserContainer,
 } from './styles';
 
-export default function FriendItem({ data, rejectInvite, acceptInvite }) {
+export default function FriendItem({
+  data,
+  rejectInvite,
+  acceptInvite,
+  canEnterRoom,
+}) {
   return (
     <Container status={data.status}>
       <UserContainer>
@@ -35,7 +40,7 @@ export default function FriendItem({ data, rejectInvite, acceptInvite }) {
       )}
       {data.globoRoom && data.globoRoom.canEnter && (
         <ActionButtons>
-          <ActionButton>
+          <ActionButton onPress={canEnterRoom}>
             <Status>Juntar-se</Status>
             <Icon name="chevron-right" size={20} />
           </ActionButton>
@@ -61,6 +66,7 @@ FriendItem.propTypes = {
   }).isRequired,
   acceptInvite: PropTypes.func,
   rejectInvite: PropTypes.func,
+  canEnterRoom: PropTypes.func,
 };
 
 FriendItem.defaultProps = {

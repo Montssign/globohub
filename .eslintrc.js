@@ -45,6 +45,7 @@ module.exports = {
         'operator-linebreak': 'off',
         'arrow-parens': ["error", "as-needed"],
         'react/jsx-props-no-spreading': 'off',
+        'no-confusing-arrow': 'off',
         'comma-dangle': ['error', {
           "arrays": "always-multiline",
           "exports": "always-multiline",
