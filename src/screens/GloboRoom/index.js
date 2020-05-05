@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import produce from 'immer';
 import Background from '~/components/Background';
+
+import api from '~/services/api';
 
 import FriendMessage from '~/components/FriendMessage';
 import MyMessage from '~/components/MyMessage';
@@ -56,8 +58,9 @@ const data = [
   },
 ];
 
-export default function GloboRoom() {
+export default function GloboRoom({ navigation }) {
   const [message, setMessage] = useState('');
+  const [videoKey, setVideoKey] = useState('');
   const [messages, setMessages] = useState(
     data.sort((itemA, itemB) => (itemA.id < itemB.id ? 1 : -1))
   );
@@ -65,6 +68,19 @@ export default function GloboRoom() {
   const [status, setStatus] = useState();
   const [error, setError] = useState();
   const [quality, setQuality] = useState();
+
+  useEffect(() => {
+    async function getKey() {
+      try {
+        const response = await api.get('/video');
+
+        setVideoKey(response.data.code);
+      } catch (error) {
+        setVideoKey('afc9bjcQdXI');
+      }
+    }
+    getKey();
+  }, [navigation]);
 
   function addMessage() {
     setMessages(
@@ -86,7 +102,7 @@ export default function GloboRoom() {
   return (
     <Background>
       <Video
-        videoId="KVZ-P-ZI6W4"
+        videoId={videoKey}
         apiKey="AIzaSyCoXOplLbeYHPHBzof2whvpuEhkJ66n_rQ"
         onReady={() => setIsReady(true)}
         onChangeState={e => setStatus(e.state)}
