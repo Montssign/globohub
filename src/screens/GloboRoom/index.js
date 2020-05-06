@@ -19,7 +19,7 @@ const data = [
       url:
         'https://scontent.fcgh3-1.fna.fbcdn.net/v/t1.0-9/16508412_10206087078294559_8529907720311013722_n.jpg?_nc_cat=103&_nc_sid=7aed08&_nc_oc=AQnQnLSYwJNkVebvJyqBH5a7iKQbHp2l2jAEdjKN3Alathm1GMBb54Va_FSYXMECj7vgXOZv0P3S8vUhN6oWZg2X&_nc_ht=scontent.fcgh3-1.fna&oh=9295e308938948c0db583056f94596ce&oe=5ED3E993',
     },
-    who: 'me',
+    who: 'friend',
     when: '18:31',
     message: 'Boa!',
   },

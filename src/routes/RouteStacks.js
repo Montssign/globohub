@@ -112,7 +112,7 @@ export default function RouteStacks() {
 
       <Stack.Screen
         name="GloboRoom"
-        options={{ header: () => <Header title="Globo Rom" hasGoBack /> }}
+        options={{ header: () => <Header title="Globo Room" hasGoBack /> }}
         component={GloboRoom}
       />
       <Stack.Screen
